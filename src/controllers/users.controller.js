@@ -14,7 +14,7 @@ usersCtrl.singup = async (req, res) => {
   let errors = [];
   const { name, email, password, confirm_password,claveregistro } = req.body;
   //clave de registro para no permitir registros no deseados
-  if (claveregistro != "Manglar2023") {
+  if (claveregistro != "U.S.A") {
     errors.push({ text: "Clave de registro no coincide" });
   }
   if (password != confirm_password) {
@@ -51,6 +51,7 @@ usersCtrl.singup = async (req, res) => {
 
 usersCtrl.renderSigninForm = (req, res) => {
   res.render("users/signin");
+  const user = req.user;
 };
 
 usersCtrl.signin = passport.authenticate("local", {
